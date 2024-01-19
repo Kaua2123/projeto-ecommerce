@@ -5,7 +5,7 @@ function Products() {
   return (
     <div>
       <Header />
-      <h1>Olá mundo!</h1>
+      <h1>Olá mundo Products!</h1>
     </div>
   );
 }
