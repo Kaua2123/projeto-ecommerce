@@ -1,12 +1,60 @@
 
-.flex {
-  display: flex;
+.menu {
   background-color: var(--light-brown-color);
-  justify-content: space-between;
-  align-items: center;
 }
 
 .logo {
-  width: 8.4rem;
-  height: 8.4rem;
+  display: flex;
+  align-items: center;
+  width: 8rem;
+  height: 8rem;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+}
+
+.menu ul li a {
+  display: block;
+  padding: 2rem;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  position: relative;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 6rem;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.nav-item {
+  margin: 0 0.5rem;
+}
+
+.user-container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+button .link {
+  border: none;
+  color: var(--light-brown-color);
+  font-family: Inter;
+  height: 2rem;
 }

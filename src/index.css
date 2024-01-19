@@ -8,9 +8,15 @@
   font-family: Heebo;
   src: url('fonts/Heebo-VariableFont_wght.ttf');
 }
+
 @font-face {
   font-family: Josefin;
   src: url('fonts/JosefinSlab-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: Inter;
+  src: url('fonts/Inter-Regular.ttf');
 }
 
 * {
@@ -26,7 +32,7 @@ html {
 
 body {
   background-color: var(--light-brown-color);
-  font-family: Heebo;
+  font-family: Inter;
   font-size: 1.6rem;
   color: var(--white-color);
   line-height: 1.2;
@@ -48,10 +54,33 @@ h2 {
   font-weight: bold;
 }
 
+a {
+  text-decoration: none;
+
+}
+
+button {
+  background-color: var(--white-color);
+  color: var(--light-brown-color);
+}
+
+a:link {
+  color: var(--white-color);
+}
+
+a:visited {
+  color: var(--white-color);
+}
+
 .white-bg {
   min-height: 100vh;
   background-color: var(--white-color);
   color: black;
+}
+
+.white-btn {
+  min-width: 8rem;
+  height: 4rem;
 }
 
 

@@ -28,5 +28,6 @@ module.exports = {
   rules: {
     // 'prettier/prettier': 2,
     'import/prefer-default-export': 0,
+    'jsx-a11y/control-has-associated-label': 0,
   },
 };
