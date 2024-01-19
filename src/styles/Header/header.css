@@ -1,0 +1,12 @@
+
+.flex {
+  display: flex;
+  background-color: var(--light-brown-color);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 8.4rem;
+  height: 8.4rem;
+}

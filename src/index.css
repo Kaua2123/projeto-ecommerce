@@ -1,0 +1,57 @@
+:root {
+    --white-color: #fff;
+    --black-color: #000;
+    --light-brown-color: #CBAF85;
+}
+
+@font-face {
+  font-family: Heebo;
+  src: url('fonts/Heebo-VariableFont_wght.ttf');
+}
+@font-face {
+  font-family: Josefin;
+  src: url('fonts/JosefinSlab-VariableFont_wght.ttf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+
+}
+
+body {
+  background-color: var(--light-brown-color);
+  font-family: Heebo;
+  font-size: 1.6rem;
+  color: var(--white-color);
+  line-height: 1.2;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--white-color);
+}
+
+h1 {
+  font-size: 6rem;
+  font-family: Josefin;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 4rem;
+  font-family: Josefin;
+  font-weight: bold;
+}
+
+.white-bg {
+  min-height: 100vh;
+  background-color: var(--white-color);
+  color: black;
+}
+
+
