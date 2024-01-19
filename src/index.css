@@ -1,7 +1,8 @@
 :root {
-    --white-color: #fff;
-    --black-color: #000;
-    --light-brown-color: #CBAF85;
+  --white-color: #fff;
+  --black-color: #000;
+  --light-brown-color: #CBAF85;
+  --light-gray-color: #F0F0F0;
 }
 
 @font-face {
@@ -27,7 +28,6 @@
 
 html {
   font-size: 62.5%;
-
 }
 
 body {
@@ -38,7 +38,12 @@ body {
   line-height: 1.2;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--white-color);
 }
 
@@ -57,6 +62,7 @@ h2 {
 h3 {
   font-size: 5rem;
   font-family: Josefin;
+  color: var(--light-brown-color);
   font-weight: bold;
 }
 
@@ -84,6 +90,16 @@ a:visited {
   color: var(--white-color);
 }
 
+label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.main-content {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
 .section {
   min-height: 100vh;
 }
@@ -94,9 +110,29 @@ a:visited {
   color: black;
 }
 
-.white-btn {
-  min-width: 8rem;
-  height: 4rem;
+button:hover {
+  opacity: 0.8;
 }
 
+.white-btn {
+  background-color: var(--white-color);
+  color: var(--light-brown-color);
+  border-radius: 1rem;
+  min-width: 8rem;
+  height: 4rem;
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.2s;
+}
 
+.brown-btn {
+  background-color: var(--light-brown-color);
+  color: var(--white-color);
+  min-width: 8rem;
+  height: 4rem;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.2s;
+}

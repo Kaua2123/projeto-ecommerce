@@ -2,9 +2,10 @@ import React from 'react';
 
 import Header from '../../components/Header';
 
-import search from '../../imgs/search.svg';
-import cart from '../../imgs/cart.svg';
-import sell from '../../imgs/sell.svg';
+import Search from '../../imgs/search.svg';
+import Cart from '../../imgs/cart.svg';
+import Sell from '../../imgs/sell.svg';
+import Contact from '../../imgs/contact.svg';
 
 function Home() {
   return (
@@ -29,12 +30,12 @@ function Home() {
       </section>
 
       <section className="white-bg">
-        <div className="intro-content">
+        <div className="main-content">
           <h3 className="info-title">Aqui você pode:</h3>
 
           <div className="info-grid">
             <div className="info-text-container">
-              <img className="info-icon" src={search} alt="" />
+              <img className="info-icon" src={Search} alt="" />
               <p className="info-text">
                 Buscar pelos
                 {' '}
@@ -48,7 +49,7 @@ function Home() {
               </p>
             </div>
             <div className="info-text-container">
-              <img className="info-icon" src={cart} alt="" />
+              <img className="info-icon" src={Cart} alt="" />
               <p className="info-text">
                 Comprar produtos
                 {' '}
@@ -62,7 +63,7 @@ function Home() {
               </p>
             </div>
             <div className="info-text-container">
-              <img className="info-icon" src={sell} alt="" />
+              <img className="info-icon" src={Sell} alt="" />
               <p className="info-text">
                 Vender os seus próprios
                 {' '}
@@ -78,6 +79,33 @@ function Home() {
                 {' '}
                 como vendedor
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="white-bg">
+        <div className="contact-content main-content">
+          <div className="column">
+            <h3 className="contact-title">
+              Fale conosco
+            </h3>
+            <div className="contact-container">
+              <div>
+                <img className="illustration-img" src={Contact} alt="" />
+              </div>
+              <div>
+                <form className="contact-form" action="#">
+                  <label>Nome</label>
+                  <input type="text" placeholder="Seu nome" />
+                  <label>Email</label>
+                  <input type="text" placeholder="Seu email" />
+                  <label>Mensagem</label>
+                  <input type="text" placeholder="Sua mensagem" />
+
+                  <button className="brown-btn">Enviar</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
