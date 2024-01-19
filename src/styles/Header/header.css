@@ -1,6 +1,8 @@
 
 .menu {
   background-color: var(--light-brown-color);
+  width: 100%;
+  position: fixed;
 }
 
 .logo {

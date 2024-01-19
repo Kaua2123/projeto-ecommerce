@@ -1,0 +1,15 @@
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-content {
+  text-align: center;
+  margin-bottom: 0.2rem;
+}
+
+.main-text {
+  margin-bottom: 1.5rem;
+}
+
