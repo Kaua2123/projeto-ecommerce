@@ -1,4 +1,4 @@
-.main-content {
+.flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,3 +13,34 @@
   margin-bottom: 1.5rem;
 }
 
+.intro-content {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+.info-title {
+  color: var(--light-brown-color);
+  padding-top: 8rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 12rem;
+}
+
+.info-text-container {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+.info-text {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.info-icon {
+  width: 20rem;
+  height: 20rem;
+}
