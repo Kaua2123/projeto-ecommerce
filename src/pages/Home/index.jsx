@@ -31,7 +31,7 @@ function Home() {
 
       <section className="white-bg">
         <div className="main-content">
-          <h3 className="info-title">Aqui você pode:</h3>
+          <h2 className="info-title">Aqui você pode:</h2>
 
           <div className="info-grid">
             <div className="info-text-container">
@@ -87,9 +87,9 @@ function Home() {
       <section className="white-bg">
         <div className="contact-content main-content">
           <div className="column">
-            <h3 className="contact-title">
+            <h2 className="contact-title">
               Fale conosco
-            </h3>
+            </h2>
             <div className="contact-container">
               <div>
                 <img className="illustration-img" src={Contact} alt="" />
