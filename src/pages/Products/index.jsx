@@ -25,6 +25,7 @@ function Products() {
         <div className="most-buyed-container">
           <h2>Mais comprados</h2>
 
+          {/* slider carousel aqui pra envolver os card products */}
           <CardProduct />
         </div>
       </section>

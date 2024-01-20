@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './index.css';
-import './styles/Header/header.css';
-import './styles/Home/home.css';
-import './styles/SignUp/signUp.css';
-import './styles/Products/products.css';
-import './styles/CardProduct/cardProduct.css';
+import './styles/pages/Home/home.css';
+import './styles/pages/SignUp/signUp.css';
+import './styles/pages/Products/products.css';
+import './styles/pages/Users/users.css';
+
+import './styles/components/CardProduct/cardProduct.css';
+import './styles/components/CardUser/cardUser.css';
+import './styles/components/Header/header.css';
 
 import Home from './pages/Home';
 import Products from './pages/Products';

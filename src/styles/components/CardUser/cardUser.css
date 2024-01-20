@@ -1,0 +1,15 @@
+.card-user {
+  background-color: var(--light-brown-color);
+  width: 23rem;
+  height: 23rem;
+  border-radius: 3.1rem;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.user-data p {
+  margin-bottom: 0.5rem;
+}

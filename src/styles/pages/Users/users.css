@@ -1,0 +1,11 @@
+.title-container {
+  margin-top: 10rem;
+}
+
+.title-container h2, h3 {
+  color: var(--light-brown-color);
+}
+
+.user-cards {
+  margin-top: 8rem;
+}

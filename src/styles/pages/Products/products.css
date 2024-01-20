@@ -39,4 +39,5 @@
 
 .most-buyed-container h2, h3 {
   color: var(--light-brown-color);
+  margin-bottom: 8rem;
 }
