@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import './styles/Header/header.css';
 import './styles/Home/home.css';
+import './styles/SignUp/signUp.css';
 
 import Home from './pages/Home';
 import Products from './pages/Products';

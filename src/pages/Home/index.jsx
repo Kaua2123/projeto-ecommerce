@@ -103,7 +103,7 @@ function Home() {
                   <label>Mensagem</label>
                   <input type="text" placeholder="Sua mensagem" />
 
-                  <button className="brown-btn">Enviar</button>
+                  <button type="button" className="brown-btn">Enviar</button>
                 </form>
               </div>
             </div>

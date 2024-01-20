@@ -1,6 +1,9 @@
 
 .menu {
   background-color: var(--light-brown-color);
+  top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   position: fixed;
   z-index: 1;
@@ -24,6 +27,21 @@
   font-size: 1.8rem;
   color: var(--primary-color);
   position: relative;
+}
+.menu ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  width: 0;
+  height: 0.2rem;
+  background-color: var(--white-color);
+  transition: all 250ms ease-in-out;
+}
+
+.menu ul li a:hover::after {
+    width: 50%;
+    left: 25%;
 }
 
 .menu {
@@ -60,4 +78,9 @@ button .link {
   color: var(--light-brown-color);
   font-family: Inter;
   height: 2rem;
+}
+
+.link:hover {
+  font-size: 1.9rem;
+  transition: all 150ms ease-in-out;
 }

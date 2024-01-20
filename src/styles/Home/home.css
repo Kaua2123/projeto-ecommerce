@@ -72,9 +72,6 @@
 }
 
 .contact-form input {
-  padding: 0.8rem;
-  background-color: var(--light-gray-color);
-  border: none;
   margin-bottom: 2rem;
 }
 
