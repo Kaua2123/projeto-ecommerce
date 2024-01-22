@@ -1,8 +1,24 @@
 import React, { useState } from 'react';
-import Logo from '../../imgs/logo.png';
+import { toast } from 'react-toastify';
+
+import axios from '../../services/axios';
 
 function SignUp() {
   const [isLogin, setIsLogin] = useState(false);
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleRegister = async (e) => {
+    try {
+      e.preventDefault();
+      await axios.post('/user/store', { username, email, password });
+      toast.success('Usuário criado.');
+    } catch (error) {
+      console.log(error);
+      toast.error('Ocorreu um erro ao se cadastrar.');
+    }
+  };
 
   return (
     <section className="white-bg">
@@ -33,14 +49,41 @@ function SignUp() {
 
             <form action="" className="form-sign-up">
               <label> Nome </label>
-              <input type="text" name="" id="" />
+              <input
+                type="text"
+                name=""
+                id=""
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+              />
               <label> Email </label>
-              <input type="text" name="" id="" />
+              <input
+                type="text"
+                name=""
+                id=""
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
               <label> Senha </label>
-              <input type="text" name="" id="" />
+              <input
+                type="text"
+                name=""
+                id=""
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
 
               {!isLogin ? (
-                <button type="submit" className="brown-btn">
+                <button
+                  type="submit"
+                  onClick={(e) => {
+                    handleRegister(e);
+                  }}
+                  className="brown-btn"
+                >
                   Criar conta
                 </button>
               ) : (

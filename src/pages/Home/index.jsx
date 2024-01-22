@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { ToastContainer } from 'react-toastify';
 import Header from '../../components/Header';
 
 import Search from '../../imgs/search.svg';
@@ -110,6 +111,8 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <ToastContainer />
     </div>
   );
 }
