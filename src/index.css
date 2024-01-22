@@ -4,6 +4,7 @@
   --light-brown-color: #CBAF85;
   --light-gray-color: #F0F0F0;
   --gray-color: gray;
+  --very-light-brown-color: #FAF2E7;
 }
 
 @font-face {
@@ -92,7 +93,7 @@ a:visited {
 
 input {
   outline: none;
-  border-radius: 0.4rem;
+  border-radius: 1rem;
   padding: 0.8rem;
   width: 30rem;
   border: 1px solid var(--gray-color);
@@ -132,6 +133,7 @@ label {
 
 button:hover {
   opacity: 0.8;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .white-btn {

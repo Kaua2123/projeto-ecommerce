@@ -1,0 +1,23 @@
+.main-container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.main-container h2 {
+  color: var(--light-brown-color);
+}
+
+.chart-container {
+  margin-top: 2rem;
+  min-height: 50vh;
+  background-color: var(--very-light-brown-color);
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}

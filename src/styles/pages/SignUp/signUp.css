@@ -1,6 +1,7 @@
 .grid-sign-up {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
+
 }
 
 .text-container {
@@ -16,7 +17,7 @@
 }
 
 .form-sign-up-container {
-  background-color: var(--white-color);
+  background-color: var(--very-light-brown-color);
   min-height: 100vh;
   border-radius: 4.8rem;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);

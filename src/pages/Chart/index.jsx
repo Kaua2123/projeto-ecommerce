@@ -1,11 +1,20 @@
 import React from 'react';
 import Header from '../../components/Header';
+import ChartProduct from '../../components/ChartProduct';
 
 function Chart() {
   return (
     <div>
       <Header />
-      <h1>Olá mundo chart!</h1>
+      <div className="main-container">
+        <h2>Carrinho</h2>
+
+        <div className="chart-container">
+          <ChartProduct />
+          <ChartProduct />
+          <ChartProduct />
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,78 @@
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  color: black;
+  width: 50rem;
+  height: 20rem;
+  border-radius: 2.5rem;
+  background-color: var(--white-color);
+  margin-bottom: 3rem;
+}
+
+.img-container {
+  margin: 5rem;
+}
+
+.data-container {
+  margin-top: 4rem;
+}
+
+.data-container p {
+  margin-bottom: 1rem;
+}
+
+.buttons-chart {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.buttons-chart p {
+  display: block;
+}
+
+.btn-chart {
+  border: none;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  width: 4rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.btn-chart:hover {
+  background-color: var(--light-brown-color);
+  color: var(--white-color);
+}
+
+.btn-chart:active {
+  background-color: var(--light-brown-color);
+  color: var(--white-color);
+  opacity: 0.9;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-trash {
+  border: none;
+  border-radius: 0.5rem;
+  width: 4rem;
+  color: crimson;
+  cursor: pointer;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  margin: 0 auto;
+}
+
+.btn-trash:hover {
+  color: var(--white-color);
+}
+
+.btn-trash:active {
+  background-color: var(--light-brown-color);
+  color: var(--white-color);
+  opacity: 0.9;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
