@@ -56,18 +56,17 @@
 
 .btn-trash {
   border: none;
+  width: 5rem;
+  height: 2.5rem;
+  background-color: var(--light-brown-color);
   border-radius: 0.5rem;
-  width: 4rem;
-  color: crimson;
+  color: white;
   cursor: pointer;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-end;
   margin: 0 auto;
 }
 
 .btn-trash:hover {
-  color: var(--white-color);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .btn-trash:active {

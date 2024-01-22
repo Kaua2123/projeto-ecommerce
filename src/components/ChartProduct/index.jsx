@@ -18,7 +18,7 @@ export default function ChartProduct() {
 
             <button className="btn-chart" type="button"><AiOutlinePlus size={24} /></button>
             <button className="btn-chart" type="button"><AiOutlineMinus size={24} /></button>
-            <button className="btn-trash" type="button"><FaTrash /></button>
+            <button className="btn-trash" type="button"><FaTrash size={16} /></button>
           </div>
 
         </div>
