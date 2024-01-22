@@ -2,7 +2,8 @@ import React from 'react';
 import Header from '../../components/Header';
 
 import Search from '../../imgs/searchWhite.svg';
-import CardProduct from '../../components/CardProduct';
+
+import Carousel from '../../components/Carousel';
 
 function Products() {
   return (
@@ -25,8 +26,8 @@ function Products() {
         <div className="most-buyed-container">
           <h2>Mais comprados</h2>
 
-          {/* slider carousel aqui pra envolver os card products */}
-          <CardProduct />
+          <Carousel />
+
         </div>
       </section>
     </div>
