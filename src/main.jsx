@@ -22,18 +22,22 @@ import Users from './pages/Users';
 import Chart from './pages/Chart';
 import SignUp from './pages/SignUp';
 
+import ToastProvider from './components/ToastProvider';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/product/:id" element={<Product />} />
-        <Route path="/requests" element={<Requests />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/chart" element={<Chart />} />
-        <Route path="/signUp" element={<SignUp />} />
-      </Routes>
+      <ToastProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/product/:id" element={<Product />} />
+          <Route path="/requests" element={<Requests />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/chart" element={<Chart />} />
+          <Route path="/signUp" element={<SignUp />} />
+        </Routes>
+      </ToastProvider>
     </BrowserRouter>
   </React.StrictMode>,
 );
