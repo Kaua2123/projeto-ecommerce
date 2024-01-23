@@ -24,7 +24,7 @@ function Header() {
       </div>
 
       <div className="user-container">
-        <Link className="link" to="/chart"><FaShoppingCart size={20} /></Link>
+        <Link className="link" to="/chart"><FaShoppingCart size={28} /></Link>
         {!token && (
           <Link className="link" to="/signUp"> Entrar </Link>
         )}

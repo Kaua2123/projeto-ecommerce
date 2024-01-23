@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Search from '../../imgs/search.svg';
 
-export default function CardProduct() {
+export default function CardProduct({ name, price, description }) {
   return (
     <div>
       <div className="card-product">
@@ -11,14 +12,20 @@ export default function CardProduct() {
         </div>
         <div className="data-section">
           <div className="product-data">
-            <p>Nome do produto</p>
-            <p>Breve descrição</p>
+            <p>{name}</p>
+            <p>{description}</p>
           </div>
           <div className="price">
-            <p>Preço</p>
+            <p>{price}</p>
           </div>
         </div>
       </div>
     </div>
   );
 }
+
+CardProduct.propTypes = {
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired,
+};
