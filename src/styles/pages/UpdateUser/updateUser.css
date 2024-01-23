@@ -1,0 +1,10 @@
+.user-div h1 {
+  margin-bottom: 6rem;
+}
+
+.user-data {
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+}

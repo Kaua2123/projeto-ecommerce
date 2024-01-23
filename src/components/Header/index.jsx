@@ -1,10 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { FaShoppingCart } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
+import { FaShoppingCart, FaUser } from 'react-icons/fa';
 
 import Logo from '../../imgs/logo.png';
 
 function Header() {
+  const token = localStorage.getItem('token');
+  const navigate = useNavigate();
+
   return (
     <nav className="menu">
       <div>
@@ -22,7 +25,21 @@ function Header() {
 
       <div className="user-container">
         <Link className="link" to="/chart"><FaShoppingCart size={28} /></Link>
-        <Link className="link" to="/signUp"> Entrar </Link>
+        {!token && (
+          <Link className="link" to="/signUp"> Entrar </Link>
+        )}
+        <div className="user-profile">
+          <button
+            type="button"
+            onClick={() => {
+              navigate('/updateUser');
+            }}
+          >
+            <FaUser
+              color="black"
+            />
+          </button>
+        </div>
       </div>
     </nav>
   );
