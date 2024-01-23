@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import validator from 'validator';
-import { FaUser } from 'react-icons/fa';
+import { FaSignOutAlt, FaUser, FaUserEdit } from 'react-icons/fa';
 
+import { useNavigate } from 'react-router-dom';
 import axios from '../../services/axios';
 
 function UpdateUser() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleUpdate = async (e) => {
     try {
@@ -113,10 +115,24 @@ function UpdateUser() {
                   handleUpdate(e);
                 }}
               >
+                <FaUserEdit style={{ marginRight: '1rem' }} />
                 Editar
               </button>
+              <button
+                type="button"
+                className="white-btn"
+                onClick={() => {
+                  localStorage.removeItem('token');
+                  navigate('/');
+                }}
+              >
+                <FaSignOutAlt style={{ marginRight: '1rem' }} />
+                Sair
+              </button>
+
             </form>
           </div>
+
         </div>
 
       </div>

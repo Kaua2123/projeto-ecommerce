@@ -14,6 +14,7 @@ import './styles/components/CardProduct/cardProduct.css';
 import './styles/components/CardUser/cardUser.css';
 import './styles/components/ChartProduct/chartProduct.css';
 import './styles/components/Header/header.css';
+import './styles/components/DropdownMenu/dropdownMenu.css';
 
 import Home from './pages/Home';
 import Products from './pages/Products';

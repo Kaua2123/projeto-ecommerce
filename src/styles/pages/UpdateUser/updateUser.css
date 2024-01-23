@@ -8,3 +8,10 @@
   grid-template-columns: 1fr 1fr;
   text-align: center;
 }
+
+.form-container button {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
