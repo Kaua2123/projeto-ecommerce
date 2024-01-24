@@ -8,4 +8,6 @@
 
 .user-cards {
   margin-top: 8rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
