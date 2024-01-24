@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import {
   Navigation, Pagination, Scrollbar, A11y,
 } from 'swiper/modules';
+import { Link } from 'react-router-dom';
 
 import axios from '../../services/axios';
 import CardProduct from '../CardProduct/index';
@@ -15,7 +16,6 @@ import 'swiper/css/scrollbar';
 
 export default function Carousel() {
   const [products, setProducts] = useState([]);
-  const [productImage, setProductImage] = useState('');
 
   useEffect(() => {
     async function getProducts() {
@@ -42,11 +42,15 @@ export default function Carousel() {
     >
       {products.map((product) => (
         <SwiperSlide>
-          <CardProduct
-            name={product.name}
-            description={product.description}
-            price={product.price}
-          />
+          <Link to={`/product/${product.id}`}>
+            <CardProduct
+              id={product.id}
+              name={product.name}
+              description={product.description}
+              price={product.price}
+            />
+          </Link>
+
         </SwiperSlide>
       ))}
 

@@ -6,6 +6,7 @@ import './index.css';
 import './styles/pages/Home/home.css';
 import './styles/pages/SignUp/signUp.css';
 import './styles/pages/Products/products.css';
+import './styles/pages/Product/product.css';
 import './styles/pages/Users/users.css';
 import './styles/pages/Chart/chart.css';
 import './styles/pages/UpdateUser/updateUser.css';
