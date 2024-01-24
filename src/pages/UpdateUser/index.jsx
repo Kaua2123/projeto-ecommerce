@@ -25,6 +25,7 @@ function UpdateUser() {
     async function getUserData() {
       await axios.get(`/user/${id}`)
         .then((response) => {
+          console.log(response.data);
           setUserData(response.data);
           setPhoto(response.data.Image.url);
         })

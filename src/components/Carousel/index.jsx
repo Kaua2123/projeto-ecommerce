@@ -15,6 +15,7 @@ import 'swiper/css/scrollbar';
 
 export default function Carousel() {
   const [products, setProducts] = useState([]);
+  const [productImage, setProductImage] = useState('');
 
   useEffect(() => {
     async function getProducts() {
@@ -40,7 +41,7 @@ export default function Carousel() {
       pagination={{ clickable: true }}
     >
       {products.map((product) => (
-        <SwiperSlide key={product.id}>
+        <SwiperSlide>
           <CardProduct
             name={product.name}
             description={product.description}

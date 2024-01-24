@@ -11,6 +11,7 @@ function Users() {
       await axios.get('/user')
         .then((response) => {
           setUsers(response.data);
+          console.log(response.data);
         })
         .catch((error) => {
           console.log(error);
@@ -31,7 +32,7 @@ function Users() {
         <div className="user-cards main-content">
           {users.map((user) => (
             <div key={user.id}>
-              <CardUser username={user.username} id={user.id} />
+              <CardUser username={user.username} id={user.id} photo={user.Image.url} />
             </div>
           ))}
         </div>

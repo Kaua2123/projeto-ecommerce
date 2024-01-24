@@ -14,3 +14,10 @@
 .user-data p {
   margin-bottom: 0.5rem;
 }
+
+.user-avatar img {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 100%;
+  width: 10rem;
+  height: 10rem;
+}
