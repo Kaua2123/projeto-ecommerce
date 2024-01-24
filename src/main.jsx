@@ -12,6 +12,7 @@ import './styles/pages/Chart/chart.css';
 import './styles/pages/UpdateUser/updateUser.css';
 
 import './styles/components/CardProduct/cardProduct.css';
+import './styles/components/CardSellProduct/cardSellProduct.css';
 import './styles/components/CardUser/cardUser.css';
 import './styles/components/ChartProduct/chartProduct.css';
 import './styles/components/Header/header.css';

@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 
 import Header from '../../components/Header';
 import axios from '../../services/axios';
+import temporaryImage from '../../imgs/search.svg';
+import CardSellProduct from '../../components/CardSellProduct';
 
 function Product() {
   const { id } = useParams();
@@ -26,12 +28,25 @@ function Product() {
   return (
     <div>
       <Header />
-      <div className="product-container">
-        <h1>
-          Produto
-          { ' ' }
-          {id}
-        </h1>
+      <div className="main-grid">
+
+        <div className="img-content">
+          <img src={temporaryImage} alt="" />
+        </div>
+
+        <div className="text-section">
+          <h2>{product.name}</h2>
+          <h3>Mais vendidos</h3>
+          <h1 className="product-price">
+            {product.price}
+            {' '}
+            R$
+          </h1>
+        </div>
+
+        <div className="sell-data-container">
+          <h3><CardSellProduct /></h3>
+        </div>
       </div>
     </div>
   );
