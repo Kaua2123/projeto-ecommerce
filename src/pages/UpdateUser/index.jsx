@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { FaSignOutAlt, FaUser, FaUserEdit } from 'react-icons/fa';
+import {
+  FaCamera, FaSignOutAlt, FaUser, FaUserEdit,
+} from 'react-icons/fa';
 import validator from 'validator';
 import { jwtDecode } from 'jwt-decode';
 
@@ -12,6 +14,7 @@ function UpdateUser() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userData, setUserData] = useState({});
+  const [photo, setPhoto] = useState('');
   const navigate = useNavigate();
 
   const token = localStorage.getItem('token');
@@ -23,6 +26,7 @@ function UpdateUser() {
       await axios.get(`/user/${id}`)
         .then((response) => {
           setUserData(response.data);
+          setPhoto(response.data.Image.url);
         })
         .catch((error) => {
           console.log(error);
@@ -66,6 +70,26 @@ function UpdateUser() {
     }
   };
 
+  const handleChange = async (e) => {
+    const file = e.target.files[0];
+    const photoURL = URL.createObjectURL(file);
+    setPhoto(photoURL);
+    const formData = new FormData();
+    formData.append('user_id', id);
+    formData.append('image', file);
+
+    try {
+      await axios.post('/image', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+    } catch (error) {
+      toast.error(error.response.data);
+      console.log(error);
+    }
+  };
+
   return (
     <section className="white-bg">
       <div className="grid-sign-up">
@@ -73,7 +97,25 @@ function UpdateUser() {
           <div className="user-div">
             <h1>Seus dados</h1>
             <div className="user-picture">
-              <FaUser color="white" size={120} />
+              {photo ? (
+                <img src={photo} alt="" />
+              ) : (
+                <FaUser color="white" size={120} />
+              )}
+
+              <div className="camera">
+                <label htmlFor="picture-input">
+                  <FaCamera className="icon-camera" color="black" size={40} cursor="pointer" />
+                  <input
+                    type="file"
+                    name=""
+                    id="picture-input"
+                    onChange={(e) => {
+                      handleChange(e);
+                    }}
+                  />
+                </label>
+              </div>
             </div>
             <div className="user-data">
               <p>Nome: </p>

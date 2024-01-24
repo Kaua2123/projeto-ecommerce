@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
+import { jwtDecode } from 'jwt-decode';
 
+import axios from '../../services/axios';
 import Logo from '../../imgs/logo.png';
 
 function Header() {
-  const token = localStorage.getItem('token');
   const navigate = useNavigate();
+  const [photo, setPhoto] = useState('');
+
+  const token = localStorage.getItem('token');
+  const decodedToken = jwtDecode(token);
+  const { id } = decodedToken;
+
+  useEffect(() => {
+    async function getUserData() {
+      await axios.get(`/user/${id}`)
+        .then((response) => {
+          setPhoto(response.data.Image.url);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+
+    getUserData();
+  }, []);
 
   return (
     <nav className="menu">
@@ -36,9 +56,14 @@ function Header() {
               navigate('/updateUser');
             }}
           >
-            <FaUser
-              color="black"
-            />
+            {photo ? (
+              <img src={photo} alt="" />
+            ) : (
+              <FaUser
+                color="black"
+              />
+            )}
+
           </button>
         </div>
         )}
