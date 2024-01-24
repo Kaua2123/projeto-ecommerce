@@ -41,11 +41,12 @@ function SignUp() {
           console.log(response);
         })
         .catch((error) => {
-          toast.error('Ocorreu um erro ao se cadastrar.');
+          toast.error(error.response.data);
           console.log(error);
         });
 
       toast.success('Usuário criado.');
+      setIsLogin(true);
     } catch (error) {
       console.log(error);
       toast.error('Ocorreu um erro ao se cadastrar.');
@@ -75,18 +76,19 @@ function SignUp() {
         .then((response) => {
           const { token } = response.data;
           localStorage.setItem('token', token);
+          axios.defaults.headers.Authorization = `Bearer ${token}`;
+          toast.success('Você entrou na sua conta.');
+          setTimeout(() => {
+            navigate('/');
+          }, 2000);
         })
         .catch((error) => {
           console.log(error);
+          toast.error(error.response.data);
         });
-
-      toast.success('Você entrou na sua conta.');
-      setTimeout(() => {
-        navigate('/');
-      }, 2000);
     } catch (error) {
       console.log(error);
-      toast.error('Ocorreu um erro ao se cadastrar.');
+      toast.error('Ocorreu um erro ao entrar na conta.');
     }
   };
 
@@ -122,6 +124,7 @@ function SignUp() {
                 <>
                   <label> Nome </label>
                   <input
+                    placeholder="Como você quer ser chamado"
                     type="text"
                     name=""
                     id=""
@@ -134,7 +137,8 @@ function SignUp() {
 
               <label> Email </label>
               <input
-                type="text"
+                placeholder="Digite seu email"
+                type="email"
                 name=""
                 id=""
                 onChange={(e) => {
@@ -143,7 +147,8 @@ function SignUp() {
               />
               <label> Senha </label>
               <input
-                type="text"
+                placeholder="Digite sua senha"
+                type="password"
                 name=""
                 id=""
                 onChange={(e) => {

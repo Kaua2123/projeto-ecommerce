@@ -1,25 +1,40 @@
-import React, { useState } from 'react';
-import { toast } from 'react-toastify';
-import validator from 'validator';
-import { FaSignOutAlt, FaUser, FaUserEdit } from 'react-icons/fa';
-
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { FaSignOutAlt, FaUser, FaUserEdit } from 'react-icons/fa';
+import validator from 'validator';
+import { jwtDecode } from 'jwt-decode';
+
 import axios from '../../services/axios';
 
 function UpdateUser() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [userData, setUserData] = useState({});
   const navigate = useNavigate();
+
+  const token = localStorage.getItem('token');
+  const decodedToken = jwtDecode(token);
+  const { id } = decodedToken;
+
+  useEffect(() => {
+    async function getUserData() {
+      await axios.get(`/user/${id}`)
+        .then((response) => {
+          setUserData(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+
+    getUserData();
+  }, []);
 
   const handleUpdate = async (e) => {
     try {
       e.preventDefault();
-
-      if (!username || !email || !password) {
-        toast.error('Todos os campos devem ser preenchidos.');
-        return;
-      }
 
       if (username.length < 3 || username.length > 24) {
         toast.error('Nome deve ter entre 3 e 24 caracteres.');
@@ -36,19 +51,18 @@ function UpdateUser() {
         return;
       }
 
-      await axios.post('/user/store', { username, email, password })
+      await axios.put(`/user/update/${id}`, { username, email, password })
         .then((response) => {
-          console.log(response);
+          console.log(response.data);
+          toast.success('Usuário editado.');
         })
         .catch((error) => {
-          toast.error('Ocorreu um erro ao se cadastrar.');
           console.log(error);
+          toast.error(error.response.data);
         });
-
-      toast.success('Usuário criado.');
     } catch (error) {
       console.log(error);
-      toast.error('Ocorreu um erro ao se cadastrar.');
+      toast.error('Ocorreu um erro ao atualizar os seus dados.');
     }
   };
 
@@ -63,13 +77,12 @@ function UpdateUser() {
             </div>
             <div className="user-data">
               <p>Nome: </p>
-              <p>1234</p>
-              <p>Email:</p>
-              <p>123@gmail.com</p>
-              <p>Senha:</p>
-              <p>*****</p>
+              <p>{userData.username}</p>
+              <p>Email: </p>
+              <p>{userData.email}</p>
+              <p>Senha: </p>
+              <p>******</p>
             </div>
-
           </div>
         </div>
         <div className="form-sign-up-container">
@@ -100,7 +113,7 @@ function UpdateUser() {
               />
               <label> Senha </label>
               <input
-                type="text"
+                type="password"
                 name=""
                 id=""
                 placeholder="Digite sua nova senha"

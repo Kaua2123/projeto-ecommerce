@@ -16,7 +16,11 @@ export default function CardProduct({ name, price, description }) {
             <p>{description}</p>
           </div>
           <div className="price">
-            <p>{price}</p>
+            <p>
+              {price}
+              {' '}
+              R$
+            </p>
           </div>
         </div>
       </div>

@@ -24,7 +24,7 @@ function Products() {
       </section>
       <section className="white-bg">
         <div className="most-buyed-container">
-          <h2>Mais comprados</h2>
+          <h2>Produtos</h2>
 
           <Carousel />
 

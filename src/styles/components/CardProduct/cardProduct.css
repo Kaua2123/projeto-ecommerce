@@ -3,7 +3,7 @@
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-end;
-  max-width: 40.13rem;
+  min-width: 40.13rem;
   min-height: 40.58rem;
   border-radius: 3.1rem;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
