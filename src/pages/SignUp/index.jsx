@@ -38,6 +38,7 @@ function SignUp() {
 
       await axios.post('/user/store', { username, email, password })
         .then((response) => {
+          toast.success('Usuário criado.');
           console.log(response);
         })
         .catch((error) => {
@@ -45,7 +46,6 @@ function SignUp() {
           console.log(error);
         });
 
-      toast.success('Usuário criado.');
       setIsLogin(true);
     } catch (error) {
       console.log(error);
