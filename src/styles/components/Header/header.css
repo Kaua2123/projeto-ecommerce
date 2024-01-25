@@ -102,6 +102,8 @@ button .link {
   width: 5rem;
   height: 5rem;
   border-radius: 100%;
+  background-size: cover;
+  background-position: center center;
 }
 
 .user-profile button:hover {

@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 import { useParams } from 'react-router-dom';
-import { FaTruck } from 'react-icons/fa';
-
-import Search from '../../imgs/search.svg';
 import axios from '../../services/axios';
 
 export default function CardSellProduct() {
@@ -29,13 +26,15 @@ export default function CardSellProduct() {
     <div>
       <div className="card-sell-product">
         <div className="sell-text-section">
-          <p>Vendedor:</p>
+          <p className="seller">Vendedor</p>
           <p>Nome vendedor</p>
-          <p>Quatnidade:</p>
+          <p>Quantidade</p>
           <p>
             {product.stock_quantity}
             {' '}
-            <b>em estoque</b>
+            <b> em estoque</b>
+            {' '}
+            <b />
           </p>
           <p>Valor do frete:</p>
           <p>Frete grátis</p>

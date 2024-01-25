@@ -11,22 +11,25 @@ function Header() {
   const [photo, setPhoto] = useState('');
 
   const token = localStorage.getItem('token');
-  const decodedToken = jwtDecode(token);
-  const { id } = decodedToken;
 
-  useEffect(() => {
-    async function getUserData() {
-      await axios.get(`/user/${id}`)
-        .then((response) => {
-          setPhoto(response.data.Image.url);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
+  if (token) {
+    const decodedToken = jwtDecode(token);
+    const { id } = decodedToken;
 
-    getUserData();
-  }, []);
+    useEffect(() => {
+      async function getUserData() {
+        await axios.get(`/user/${id}`)
+          .then((response) => {
+            setPhoto(response.data.Image.url);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+
+      getUserData();
+    }, []);
+  }
 
   return (
     <nav className="menu">

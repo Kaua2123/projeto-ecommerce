@@ -1,12 +1,13 @@
 .card-sell-product {
   background-color: var(--light-brown-color);
   max-width: 41.09rem;
-  min-height: 55.77rem;
+  min-height: 50.77rem;
   padding: 4rem;
   border-radius: 6.7rem;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
   color: white;
-  font-size: 2.5rem;
+  font-size: 2rem;
+  font-family: Inter;
 }
 
 .sell-text-section {
@@ -20,6 +21,7 @@
   margin-bottom: 5rem;
   font-weight: 500;
 }
+
 
 .sell-buttons-container {
   display: flex;
