@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { FaCamera } from 'react-icons/fa';
 import { toast } from 'react-toastify';
+import validator from 'validator';
+
 import Header from '../../components/Header';
-
 import Search from '../../imgs/search.svg';
-
 import Carousel from '../../components/Carousel';
 import axios from '../../services/axios';
 
@@ -18,6 +18,17 @@ function Products() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      if (!productName || !productPrice || !productStock || !productDescription) {
+        toast.error('Todos os campos devem ser preenchidos.');
+        return;
+      }
+      if (!validator.isInt(productStock)) {
+        toast.error('Por favor, preencha o campo de estoque corretamente. Apenas números são aceitos');
+      }
+      if (!validator.isFloat(productPrice)) {
+        toast.error('Por favor, preencha o campo de preço corretamente. Apenas números são aceitos');
+      }
+
       await axios.post('/product/store', {
         name: productName,
         price: productPrice,
