@@ -93,10 +93,11 @@ a:visited {
 
 input {
   outline: none;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
+  border: none;
   padding: 0.8rem;
   width: 30rem;
-  border: 1px solid var(--gray-color);
+  border: 1px solid rgb(150, 150, 150);
   background-color: var(--white-color);
   transition: 0.2s;
 }
