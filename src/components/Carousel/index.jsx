@@ -3,8 +3,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import {
   Navigation, Pagination, Scrollbar, A11y,
 } from 'swiper/modules';
-import { Link } from 'react-router-dom';
+import { MdOutlineProductionQuantityLimits } from 'react-icons/md';
 
+import sadProduct from '../../imgs/sad-product.png';
 import axios from '../../services/axios';
 import CardProduct from '../CardProduct/index';
 
@@ -33,27 +34,55 @@ export default function Carousel() {
   }, []);
 
   return (
-    <Swiper
-      style={{ backgroundColor: 'var(--very-light-brown-color)', padding: '3rem', borderRadius: '3rem' }}
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={25}
-      slidesPerView={3}
-      pagination={{ clickable: true }}
-    >
-      {products.map((product) => (
-        <SwiperSlide>
+    <div>
+      {products.length > 0 ? (
+        <Swiper
+          style={{ backgroundColor: 'var(--very-light-brown-color)', padding: '3rem', borderRadius: '3rem' }}
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          spaceBetween={25}
+          slidesPerView={3}
+          pagination={{ clickable: true }}
+        >
+          {products.map((product) => (
+            <SwiperSlide>
 
-          <CardProduct
-            id={product.id}
-            name={product.name}
-            description={product.description}
-            price={product.price}
+              <CardProduct
+                id={product.id}
+                name={product.name}
+                description={product.description}
+                price={product.price}
+              />
+
+            </SwiperSlide>
+          ))}
+
+        </Swiper>
+      ) : (
+        <div
+          className="no-products"
+          style={{
+            backgroundColor: 'var(--very-light-brown-color)',
+            padding: '1rem',
+            borderRadius: '3rem',
+            display: 'flex',
+            flexFlow: 'column wrap',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <img
+            src={sadProduct}
+            alt=""
+            style={{
+              width: '43rem',
+              height: '43rem',
+            }}
           />
+          <h3>Parece que ainda não há produtos... Vamos começar?</h3>
+        </div>
+      )}
 
-        </SwiperSlide>
-      ))}
-
-    </Swiper>
+    </div>
   );
 }
 
@@ -76,26 +105,55 @@ export function CarouselMyProducts() {
   }, []);
 
   return (
-    <Swiper
-      style={{ backgroundColor: 'var(--very-light-brown-color)', padding: '3rem', borderRadius: '3rem' }}
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={25}
-      slidesPerView={3}
-      pagination={{ clickable: true }}
-    >
-      {userProducts.map((product) => (
-        <SwiperSlide>
+    <div>
+      {userProducts.length > 0 ? (
+        <Swiper
+          style={{ backgroundColor: 'var(--very-light-brown-color)', padding: '3rem', borderRadius: '3rem' }}
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          spaceBetween={25}
+          slidesPerView={3}
+          pagination={{ clickable: true }}
+        >
+          {userProducts.map((product) => (
+            <SwiperSlide>
 
-          <CardProduct
-            id={product.id}
-            name={product.name}
-            description={product.description}
-            price={product.price}
+              <CardProduct
+                id={product.id}
+                name={product.name}
+                description={product.description}
+                price={product.price}
+              />
+
+            </SwiperSlide>
+          ))}
+
+        </Swiper>
+      ) : (
+        <div
+          className="no-products"
+          style={{
+            backgroundColor: 'var(--very-light-brown-color)',
+            padding: '1rem',
+            borderRadius: '3rem',
+            display: 'flex',
+            flexFlow: 'column wrap',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <img
+            src={sadProduct}
+            alt=""
+            style={{
+              width: '43rem',
+              height: '43rem',
+            }}
           />
+          <h3>Parece que você ainda não vendeu produtos... Vamos começar?</h3>
+        </div>
+      )}
 
-        </SwiperSlide>
-      ))}
+    </div>
 
-    </Swiper>
   );
 }
