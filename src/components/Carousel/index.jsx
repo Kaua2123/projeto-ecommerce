@@ -42,14 +42,56 @@ export default function Carousel() {
     >
       {products.map((product) => (
         <SwiperSlide>
-          <Link to={`/product/${product.id}`}>
-            <CardProduct
-              id={product.id}
-              name={product.name}
-              description={product.description}
-              price={product.price}
-            />
-          </Link>
+
+          <CardProduct
+            id={product.id}
+            name={product.name}
+            description={product.description}
+            price={product.price}
+          />
+
+        </SwiperSlide>
+      ))}
+
+    </Swiper>
+  );
+}
+
+export function CarouselMyProducts() {
+  const [userProducts, setUserProducts] = useState([]);
+
+  useEffect(() => {
+    async function getProducts() {
+      await axios.get('/userProduct')
+        .then((response) => {
+          console.log(response.data);
+          setUserProducts(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+
+    getProducts();
+  }, []);
+
+  return (
+    <Swiper
+      style={{ backgroundColor: 'var(--very-light-brown-color)', padding: '3rem', borderRadius: '3rem' }}
+      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      spaceBetween={25}
+      slidesPerView={3}
+      pagination={{ clickable: true }}
+    >
+      {userProducts.map((product) => (
+        <SwiperSlide>
+
+          <CardProduct
+            id={product.id}
+            name={product.name}
+            description={product.description}
+            price={product.price}
+          />
 
         </SwiperSlide>
       ))}

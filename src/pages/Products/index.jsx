@@ -3,6 +3,7 @@ import { FaCamera } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import validator from 'validator';
 
+import { jwtDecode } from 'jwt-decode';
 import Header from '../../components/Header';
 import Search from '../../imgs/search.svg';
 import Carousel from '../../components/Carousel';
@@ -16,6 +17,8 @@ function Products() {
   const [productImage, setProductImage] = useState('');
 
   const handleSubmit = async (e) => {
+    const token = localStorage.getItem('token');
+    const decodedToken = jwtDecode(token);
     e.preventDefault();
     try {
       if (!productName || !productPrice || !productStock || !productDescription) {
@@ -34,6 +37,7 @@ function Products() {
         price: productPrice,
         stock_quantity: productStock,
         description: productDescription,
+        user_id: decodedToken.id,
       })
         .then((response) => {
           console.log(response.data);
