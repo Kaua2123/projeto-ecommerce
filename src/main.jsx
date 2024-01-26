@@ -8,7 +8,6 @@ import './styles/pages/SignUp/signUp.css';
 import './styles/pages/Products/products.css';
 import './styles/pages/MyProducts/myProducts.css';
 import './styles/pages/Product/product.css';
-import './styles/pages/Users/users.css';
 import './styles/pages/Chart/chart.css';
 import './styles/pages/UpdateUser/updateUser.css';
 
@@ -24,7 +23,6 @@ import Products from './pages/Products';
 import MyProducts from './pages/MyProducts';
 import Product from './pages/Product';
 import Requests from './pages/Requests';
-import Users from './pages/Users';
 import Chart from './pages/Chart';
 import SignUp from './pages/SignUp';
 import UpdateUser from './pages/UpdateUser';
@@ -41,7 +39,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/myProducts" element={<MyProducts />} />
           <Route path="/product/:id" element={<Product />} />
           <Route path="/requests" element={<Requests />} />
-          <Route path="/users" element={<Users />} />
           <Route path="/chart" element={<Chart />} />
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/updateUser" element={<UpdateUser />} />

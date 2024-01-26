@@ -42,7 +42,6 @@ function Header() {
           <li className="nav-item"><Link to="/products"> Produtos </Link></li>
           <li className="nav-item"><Link to="/myProducts"> Meus produtos </Link></li>
           <li className="nav-item"><Link to="/requests"> Pedidos </Link></li>
-          <li className="nav-item"><Link to="/users"> Usuários </Link></li>
 
         </ul>
       </div>

@@ -47,7 +47,7 @@ export default function Carousel() {
 
               <CardProduct
                 id={product.id}
-                user_id={product.user_id}
+                userId={product.user_id}
                 name={product.name}
                 description={product.description}
                 price={product.price}
@@ -90,6 +90,9 @@ export function CarouselMyProducts() {
   const [userProducts, setUserProducts] = useState([]);
 
   useEffect(() => {
+    const token = localStorage.getItem('token');
+    axios.defaults.headers.Authorization = `Bearer ${token}`;
+
     async function getProducts() {
       await axios.get('/userProduct')
         .then((response) => {
@@ -119,7 +122,7 @@ export function CarouselMyProducts() {
 
               <CardProduct
                 id={product.id}
-                user_id={product.user_id}
+                userId={product.user_id}
                 name={product.name}
                 description={product.description}
                 price={product.price}

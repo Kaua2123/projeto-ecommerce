@@ -7,7 +7,6 @@ export default function MyProducts() {
     <div>
       <Header />
       <div className="my-products-container white-bg">
-        <h2 className="main-content">Meus produtos</h2>
         <CarouselMyProducts />
       </div>
 

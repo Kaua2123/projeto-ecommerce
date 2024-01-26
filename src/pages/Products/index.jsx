@@ -18,6 +18,7 @@ function Products() {
 
   const handleSubmit = async (e) => {
     const token = localStorage.getItem('token');
+    axios.defaults.headers.Authorization = `Bearer ${token}`;
     const decodedToken = jwtDecode(token);
     e.preventDefault();
     try {
@@ -25,6 +26,15 @@ function Products() {
         toast.error('Todos os campos devem ser preenchidos.');
         return;
       }
+
+      if (productName.length < 3) {
+        toast.error('O nome do produto deve ter entre 3 ou 24 caracteres.');
+      }
+
+      if (productDescription.length < 3) {
+        toast.error('A descrição do produto deve ter entre 3 ou 24 caracteres.');
+      }
+
       if (!validator.isInt(productStock)) {
         toast.error('Por favor, preencha o campo de estoque corretamente. Apenas números são aceitos');
       }
@@ -45,7 +55,7 @@ function Products() {
         })
         .catch((error) => {
           console.log(error);
-          toast.error(error.response.data);
+          toast.error();
         });
     } catch (error) {
       console.log(error);
