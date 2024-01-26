@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import {
   Navigation, Pagination, Scrollbar, A11y,
 } from 'swiper/modules';
-import { MdOutlineProductionQuantityLimits } from 'react-icons/md';
 
 import sadProduct from '../../imgs/sad-product.png';
 import axios from '../../services/axios';
@@ -48,6 +47,7 @@ export default function Carousel() {
 
               <CardProduct
                 id={product.id}
+                user_id={product.user_id}
                 name={product.name}
                 description={product.description}
                 price={product.price}
@@ -119,6 +119,7 @@ export function CarouselMyProducts() {
 
               <CardProduct
                 id={product.id}
+                user_id={product.user_id}
                 name={product.name}
                 description={product.description}
                 price={product.price}

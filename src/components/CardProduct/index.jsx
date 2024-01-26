@@ -3,11 +3,16 @@ import PropTypes from 'prop-types';
 
 import { FaEdit } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
 import Search from '../../imgs/search.svg';
 
 export default function CardProduct({
-  id, name, price, description,
+  id, user_id, name, price, description,
 }) {
+  const token = localStorage.getItem('token');
+  const decodedToken = jwtDecode(token);
+  console.log(decodedToken.id);
+
   return (
     <div>
       <div className="card-product">
@@ -32,10 +37,12 @@ export default function CardProduct({
             <button type="button">Ver produto</button>
           </Link>
         </div>
-        {/* só aparece se for produto DO usuário */}
+        {decodedToken.id === user_id && (
         <div className="edit-section">
           <FaEdit color="black" size={30} cursor="pointer" />
         </div>
+        )}
+
       </div>
     </div>
   );
