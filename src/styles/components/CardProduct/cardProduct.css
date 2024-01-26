@@ -4,7 +4,7 @@
   flex-flow: column wrap;
   justify-content: flex-end;
   min-width: 40.13rem;
-  min-height: 43.58rem;
+  min-height: 45.58rem;
   border-radius: 3.1rem;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -21,9 +21,18 @@
   margin-bottom: 1rem;
 }
 
+.product-data input {
+  width: 10rem;
+  margin-bottom: 1rem;
+}
+
+.price input {
+  width: 10rem;
+}
+
 .img-section {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   justify-content: center;
   align-items: center;
   border-radius: 4rem;
