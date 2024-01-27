@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import productImg from '../../imgs/product.svg';
 import Header from '../../components/Header';
 import axios from '../../services/axios';
 import temporaryImage from '../../imgs/search.svg';
@@ -9,6 +10,7 @@ import CardSellProduct from '../../components/CardSellProduct';
 function Product() {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
+  const [photo, setPhoto] = useState('');
 
   useEffect(() => {
     async function getProduct() {
@@ -16,6 +18,7 @@ function Product() {
         .then((response) => {
           console.log(response.data);
           setProduct(response.data);
+          setPhoto(response.data.Image.url);
         })
         .catch((error) => {
           console.log(error);
@@ -31,7 +34,12 @@ function Product() {
       <div className="main-grid">
 
         <div className="img-content">
-          <img src={temporaryImage} alt="" />
+          {photo ? (
+            <img src={photo} alt="" />
+          ) : (
+            <img src={productImg} alt="" />
+          )}
+
         </div>
 
         <div className="text-section">
