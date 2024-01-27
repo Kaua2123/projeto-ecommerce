@@ -14,24 +14,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-export default function Carousel() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    async function getProducts() {
-      await axios.get('/product')
-        .then((response) => {
-          console.log(response.data);
-          setProducts(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-
-    getProducts();
-  }, []);
-
+export default function Carousel({ products }) {
   return (
     <div>
       {products.length > 0 ? (

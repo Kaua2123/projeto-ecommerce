@@ -157,6 +157,7 @@ function SignUp() {
               />
 
               {!isLogin ? (
+
                 <button
                   type="submit"
                   onClick={(e) => {

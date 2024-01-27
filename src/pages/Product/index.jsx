@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import productImg from '../../imgs/product.svg';
 import Header from '../../components/Header';
 import axios from '../../services/axios';
-import temporaryImage from '../../imgs/search.svg';
 import CardSellProduct from '../../components/CardSellProduct';
 
 function Product() {

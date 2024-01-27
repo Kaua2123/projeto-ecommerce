@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import validator from 'validator';
 import { jwtDecode } from 'jwt-decode';
@@ -10,10 +10,40 @@ import Carousel from '../../components/Carousel';
 import axios from '../../services/axios';
 
 function Products() {
+  const [textFilter, setTextFilter] = useState('');
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [productName, setProductName] = useState('');
   const [productPrice, setProductPrice] = useState('');
   const [productStock, setProductStock] = useState('');
+
   const [productDescription, setProductDescription] = useState('');
+
+  useEffect(() => {
+    async function getProducts() {
+      await axios.get('/product')
+        .then((response) => {
+          console.log(response.data);
+          setProducts(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+
+    getProducts();
+  }, []);
+
+  const filterProducts = () => {
+    const productsFilter = products.filter((product) => {
+      if (product.name.includes(textFilter)) {
+        setFilteredProducts(product);
+        return product;
+      }
+    });
+    console.log(productsFilter);
+    setFilteredProducts(productsFilter);
+  };
 
   const handleSubmit = async (e) => {
     const token = localStorage.getItem('token');
@@ -50,15 +80,16 @@ function Products() {
       })
         .then((response) => {
           console.log(response.data);
+
           toast.success('Seu produto foi colocado à venda.');
         })
         .catch((error) => {
           console.log(error);
-          toast.error();
+
+          toast.error('Ocorreu um erro ao pôr seu produto à venda.');
         });
     } catch (error) {
       console.log(error);
-      toast.error('Ocorreu um erro ao colocar seu produto à venda.');
     }
   };
 
@@ -69,11 +100,28 @@ function Products() {
         <div className="search-container">
           <div className="grid-search">
             <div className="search-text-container">
-              <div className="text-search"><h2>Busque e encontraremos produtos pra você.</h2></div>
+              <div className="text-search">
+                <h2>Busque e encontraremos produtos pra você.</h2>
+              </div>
             </div>
             <div className="icon-input-container">
               <img className="img-search" src={Search} alt="" />
-              <input type="text" placeholder="Produto..." />
+              <input
+                type="text"
+                placeholder="Nome do produto..."
+                onChange={(e) => {
+                  setTextFilter(e.target.value);
+                }}
+              />
+              <button
+                type="button"
+                className="white-btn"
+                onClick={(e) => {
+                  filterProducts();
+                }}
+              >
+                Filtrar
+              </button>
             </div>
           </div>
         </div>
@@ -81,8 +129,11 @@ function Products() {
       <section className="white-bg">
         <div className="most-buyed-container main-content">
           <h2>Produtos</h2>
-
-          <Carousel />
+          {filteredProducts.length > 0 ? (
+            <Carousel products={filteredProducts} />
+          ) : (
+            <Carousel products={products} />
+          )}
 
         </div>
       </section>
@@ -124,7 +175,6 @@ function Products() {
                   console.log(productDescription);
                 }}
               />
-
               <button
                 type="submit"
                 className="brown-btn"
