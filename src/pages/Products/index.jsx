@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { FaCamera } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import validator from 'validator';
-
 import { jwtDecode } from 'jwt-decode';
+
 import Header from '../../components/Header';
+import Product from '../../imgs/product.svg';
 import Search from '../../imgs/search.svg';
 import Carousel from '../../components/Carousel';
 import axios from '../../services/axios';
@@ -14,7 +14,6 @@ function Products() {
   const [productPrice, setProductPrice] = useState('');
   const [productStock, setProductStock] = useState('');
   const [productDescription, setProductDescription] = useState('');
-  const [productImage, setProductImage] = useState('');
 
   const handleSubmit = async (e) => {
     const token = localStorage.getItem('token');
@@ -63,12 +62,6 @@ function Products() {
     }
   };
 
-  const handleChange = (e) => {
-    const file = e.target.files[0];
-    const photoURL = URL.createObjectURL(file);
-    setProductImage(photoURL);
-  };
-
   return (
     <div>
       <Header />
@@ -98,25 +91,7 @@ function Products() {
           <h2>Venda de produtos</h2>
           <div className="sell-products-grid">
             <div className="sell-products-image-container">
-              {productImage ? (
-                <img src={productImage} alt="" />
-              ) : (
-                <img src={Search} alt="" />
-              )}
-
-              <div className="camera">
-                <label htmlFor="picture-input">
-                  <FaCamera className="icon-camera" color="black" size={40} cursor="pointer" />
-                  <input
-                    type="file"
-                    name=""
-                    id="picture-input"
-                    onChange={(e) => {
-                      handleChange(e);
-                    }}
-                  />
-                </label>
-              </div>
+              <img src={Product} alt="" />
             </div>
             <div className="sell-products-inputs">
               <label className="label-flex" htmlFor="">Nome</label>

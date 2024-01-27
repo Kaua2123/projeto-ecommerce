@@ -118,7 +118,7 @@ export function CarouselMyProducts() {
           pagination={{ clickable: true }}
         >
           {userProducts.map((product) => (
-            <SwiperSlide>
+            <SwiperSlide key={product.id}>
 
               <CardProduct
                 id={product.id}
