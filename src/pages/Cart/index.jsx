@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../../components/Header';
-import ChartProduct from '../../components/ChartProduct';
+import ChartProduct from '../../components/CartProduct';
 
 function Chart() {
   return (
@@ -10,8 +10,6 @@ function Chart() {
         <h2>Carrinho</h2>
 
         <div className="chart-container">
-          <ChartProduct />
-          <ChartProduct />
           <ChartProduct />
         </div>
       </div>

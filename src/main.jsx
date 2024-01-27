@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 import './index.css';
 import './styles/pages/Home/home.css';
@@ -23,27 +24,30 @@ import Products from './pages/Products';
 import MyProducts from './pages/MyProducts';
 import Product from './pages/Product';
 import Requests from './pages/Requests';
-import Chart from './pages/Chart';
+import Cart from './pages/Cart';
 import SignUp from './pages/SignUp';
 import UpdateUser from './pages/UpdateUser';
 
+import store from './store/index';
 import ToastProvider from './components/ToastProvider';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ToastProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/myProducts" element={<MyProducts />} />
-          <Route path="/product/:id" element={<Product />} />
-          <Route path="/requests" element={<Requests />} />
-          <Route path="/chart" element={<Chart />} />
-          <Route path="/signUp" element={<SignUp />} />
-          <Route path="/updateUser" element={<UpdateUser />} />
-        </Routes>
-      </ToastProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ToastProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/myProducts" element={<MyProducts />} />
+            <Route path="/product/:id" element={<Product />} />
+            <Route path="/requests" element={<Requests />} />
+            <Route path="/chart" element={<Cart />} />
+            <Route path="/signUp" element={<SignUp />} />
+            <Route path="/updateUser" element={<UpdateUser />} />
+          </Routes>
+        </ToastProvider>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
 );

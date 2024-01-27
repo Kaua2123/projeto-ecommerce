@@ -1,11 +1,17 @@
+/* eslint-disable camelcase */
 import React, { useEffect, useState } from 'react';
-
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import * as actions from '../../store/modules/cart/actions';
+
 import axios from '../../services/axios';
 
 export default function CardSellProduct() {
+  const dispatch = useDispatch();
   const { id } = useParams();
   const [product, setProduct] = useState([]);
+  const [productPhoto, setProductPhoto] = useState('');
 
   useEffect(() => {
     async function getProduct() {
@@ -13,6 +19,7 @@ export default function CardSellProduct() {
         .then((response) => {
           console.log(response.data);
           setProduct(response.data);
+          setProductPhoto(response.data.Image.url);
         })
         .catch((error) => {
           console.log(error);
@@ -21,6 +28,19 @@ export default function CardSellProduct() {
 
     getProduct();
   }, []);
+
+  const addItemToCart = () => {
+    console.log('additem to cart called');
+    const { name, price, stock_quantity } = product;
+    try {
+      dispatch(actions.addToCart({
+        id, name, price, stock_quantity, productPhoto,
+      }));
+      toast.success('Item adicionado ao carrinho');
+    } catch (error) {
+      toast.error('Ocorreu um erro ao adicionar o item ao carrinho');
+    }
+  };
 
   return (
     <div>
@@ -41,7 +61,7 @@ export default function CardSellProduct() {
         </div>
 
         <div className="sell-buttons-container">
-          <button type="button" className="white-btn">
+          <button type="button" className="white-btn" onClick={addItemToCart}>
             Adicionar ao carrinho
           </button>
           <button type="button" className="white-btn">
