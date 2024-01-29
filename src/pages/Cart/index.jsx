@@ -1,8 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Header from '../../components/Header';
 import CartProduct from '../../components/CartProduct';
 
-function Chart() {
+function Cart() {
+  const price = useSelector((state) => state.cart.product.price);
+  const allProducts = useSelector((state) => state.cart.allProducts);
+
   return (
     <div>
       <Header />
@@ -10,7 +14,15 @@ function Chart() {
         <h2>Carrinho</h2>
 
         <div className="cart-container">
-          <CartProduct />
+          {allProducts.map((value) => (
+            <CartProduct
+              key={value.id}
+              name={value.name}
+              price={value.price}
+              photo={value.photo}
+            />
+          ))}
+
         </div>
 
       </div>
@@ -21,7 +33,13 @@ function Chart() {
               <h4 style={{ color: 'var(--light-brown-color)' }}>Subtotal</h4>
             </div>
             <div>
-              <p> subtotal </p>
+              <p>
+                {' '}
+                {price}
+                {' '}
+                R$
+                {' '}
+              </p>
             </div>
           </div>
           <button className="brown-btn" type="button">Criar pedido</button>
@@ -32,4 +50,4 @@ function Chart() {
   );
 }
 
-export default Chart;
+export default Cart;

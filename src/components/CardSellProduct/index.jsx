@@ -30,7 +30,6 @@ export default function CardSellProduct() {
   }, []);
 
   const addItemToCart = () => {
-    console.log('additem to cart called');
     const { name, price, stock_quantity } = product;
     try {
       dispatch(actions.addToCart({

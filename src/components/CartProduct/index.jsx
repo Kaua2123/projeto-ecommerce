@@ -1,17 +1,29 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import { FaTrash } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { toast } from 'react-toastify';
 import productImg from '../../imgs/product.svg';
+import * as actions from '../../store/modules/cart/actions';
 
-export default function ChartProduct() {
-  const name = useSelector((state) => state.cart.product.name);
-  const price = useSelector((state) => state.cart.product.price);
-  const photo = useSelector((state) => state.cart.product.productPhoto);
+export default function CartProduct({ name, price, photo }) {
   const [productQuantity, setProductQuantity] = useState(1);
+  const dispatch = useDispatch();
   // const stockQuantity = useSelector((state) => state.cart.product.stock_quantity);
+  const removeFromCart = () => {
+    console.log('removeFromCart called');
+
+    try {
+      dispatch(actions.removeFromCart({}));
+      toast.success('Item removido do carrinho.');
+    } catch (error) {
+      console.log(error);
+      toast.error('Ocorreu um erro ao remover o item do carrinho.');
+    }
+  };
 
   return (
     <div>
@@ -58,7 +70,7 @@ export default function ChartProduct() {
             >
               <AiOutlineMinus size={24} />
             </button>
-            <button className="btn-trash" type="button"><FaTrash size={16} /></button>
+            <button className="btn-trash" type="button" onClick={removeFromCart}><FaTrash size={16} /></button>
           </div>
 
         </div>
@@ -67,3 +79,9 @@ export default function ChartProduct() {
     </div>
   );
 }
+
+CartProduct.propTypes = {
+  name: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+  photo: PropTypes.string.isRequired,
+};
