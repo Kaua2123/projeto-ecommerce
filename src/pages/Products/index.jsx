@@ -36,7 +36,7 @@ function Products() {
 
   const filterProducts = () => {
     const productsFilter = products.filter((product) => {
-      if (product.name.includes(textFilter)) {
+      if (product.name.toLowerCase().includes(textFilter)) {
         setFilteredProducts(product);
         return product;
       }
@@ -110,7 +110,7 @@ function Products() {
                 type="text"
                 placeholder="Nome do produto..."
                 onChange={(e) => {
-                  setTextFilter(e.target.value);
+                  setTextFilter(e.target.value.toLowerCase());
                 }}
               />
               <button
