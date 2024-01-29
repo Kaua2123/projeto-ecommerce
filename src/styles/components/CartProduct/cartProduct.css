@@ -1,4 +1,4 @@
-.chart-grid {
+.cart-grid {
   display: grid;
   grid-template-columns: 1fr 2fr;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
@@ -22,17 +22,18 @@
   margin-bottom: 1rem;
 }
 
-.buttons-chart {
+.buttons-cart {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+  margin-top: 2.5rem;
 }
 
-.buttons-chart p {
+.buttons-cart p {
   display: block;
 }
 
-.btn-chart {
+.btn-cart {
   border: none;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   border-radius: 0.5rem;
@@ -42,12 +43,12 @@
   opacity: 1;
 }
 
-.btn-chart:hover {
+.btn-cart:hover {
   background-color: var(--light-brown-color);
   color: var(--white-color);
 }
 
-.btn-chart:active {
+.btn-cart:active {
   background-color: var(--light-brown-color);
   color: var(--white-color);
   opacity: 0.9;

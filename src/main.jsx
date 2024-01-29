@@ -9,13 +9,13 @@ import './styles/pages/SignUp/signUp.css';
 import './styles/pages/Products/products.css';
 import './styles/pages/MyProducts/myProducts.css';
 import './styles/pages/Product/product.css';
-import './styles/pages/Chart/chart.css';
+import './styles/pages/Cart/cart.css';
 import './styles/pages/UpdateUser/updateUser.css';
 
 import './styles/components/CardProduct/cardProduct.css';
 import './styles/components/CardSellProduct/cardSellProduct.css';
 import './styles/components/CardUser/cardUser.css';
-import './styles/components/ChartProduct/chartProduct.css';
+import './styles/components/CartProduct/cartProduct.css';
 import './styles/components/Header/header.css';
 import './styles/components/DropdownMenu/dropdownMenu.css';
 

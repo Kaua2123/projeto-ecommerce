@@ -10,7 +10,7 @@
   color: var(--light-brown-color);
 }
 
-.chart-container {
+.cart-container {
   margin-top: 2rem;
   min-height: 50vh;
   background-color: var(--very-light-brown-color);
@@ -20,4 +20,24 @@
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
+}
+
+.subtotal-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 5rem;
+}
+
+.payment-data {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+
+.payment-data p {
+  color: black;
 }
