@@ -5,7 +5,7 @@ import CartProduct from '../../components/CartProduct';
 
 function Cart() {
   const price = useSelector((state) => state.cart.product.price);
-  const allProducts = useSelector((state) => state.cart.allProducts);
+  const cartItems = useSelector((state) => state.cart.cartItems);
 
   return (
     <div>
@@ -14,12 +14,13 @@ function Cart() {
         <h2>Carrinho</h2>
 
         <div className="cart-container">
-          {allProducts.map((value) => (
+          {cartItems.map((value, index) => (
             <CartProduct
               key={value.id}
               name={value.name}
               price={value.price}
               photo={value.photo}
+              index={index}
             />
           ))}
 

@@ -9,19 +9,32 @@ import { toast } from 'react-toastify';
 import productImg from '../../imgs/product.svg';
 import * as actions from '../../store/modules/cart/actions';
 
-export default function CartProduct({ name, price, photo }) {
-  const [productQuantity, setProductQuantity] = useState(1);
+export default function CartProduct({
+  name, price, photo, index,
+}) {
   const dispatch = useDispatch();
+  const productQuantity = useSelector((state) => state.cart.productQuantity);
   // const stockQuantity = useSelector((state) => state.cart.product.stock_quantity);
   const removeFromCart = () => {
-    console.log('removeFromCart called');
+    console.log('removeFromCart called', index);
 
     try {
-      dispatch(actions.removeFromCart({}));
+      dispatch(actions.removeFromCart({ index }));
       toast.success('Item removido do carrinho.');
     } catch (error) {
       console.log(error);
       toast.error('Ocorreu um erro ao remover o item do carrinho.');
+    }
+  };
+
+  const increaseProductQuantity = () => {
+    console.log('increaseProductQUantity called');
+
+    try {
+      dispatch(actions.increaseProductQuantity({ quantity }));
+    } catch (error) {
+      console.log(error);
+      toast.error('Ocorreu um erro ao aumentar a quantidade do item.');
     }
   };
 
@@ -53,10 +66,7 @@ export default function CartProduct({ name, price, photo }) {
             <button
               className="btn-cart"
               type="button"
-              onClick={() => {
-                setProductQuantity(productQuantity + 1);
-                console.log(productQuantity);
-              }}
+              onClick={increaseProductQuantity}
             >
               <AiOutlinePlus size={24} />
             </button>
