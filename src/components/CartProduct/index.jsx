@@ -14,11 +14,9 @@ export default function CartProduct({
 }) {
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
-  const productQuantity = useSelector((state) => state.cart.productQuantity);
+  let productQuantity = useSelector((state) => state.cart.productQuantity);
   // const stockQuantity = useSelector((state) => state.cart.product.stock_quantity);
   const removeFromCart = () => {
-    console.log('removeFromCart called', index);
-
     try {
       dispatch(actions.removeFromCart({ index }));
       toast.success('Item removido do carrinho.');
@@ -29,13 +27,39 @@ export default function CartProduct({
   };
 
   const increaseProductQuantity = () => {
-    console.log('increaseProductQUantity called');
-    setQuantity(quantity + 1);
+    if (productQuantity === 0) {
+      setQuantity(quantity + 1);
+    } else {
+      productQuantity += 1;
+    }
+
     try {
-      dispatch(actions.increaseProductQuantity(quantity));
+      if (productQuantity === 0) {
+        dispatch(actions.increaseProductQuantity(quantity));
+      } else {
+        dispatch(actions.increaseProductQuantity(productQuantity));
+      }
     } catch (error) {
       console.log(error);
       toast.error('Ocorreu um erro ao aumentar a quantidade do item.');
+    }
+  };
+
+  const decreaseProductQuantity = () => {
+    if (productQuantity === 0) {
+      setQuantity(quantity - 1);
+    } else {
+      productQuantity -= 1;
+    }
+    try {
+      if (productQuantity === 0) {
+        dispatch(actions.decreaseProductQuantity(quantity));
+      } else {
+        dispatch(actions.decreaseProductQuantity(productQuantity));
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error('Ocorreu um erro ao diminuir a quantidade do item.');
     }
   };
 
@@ -74,9 +98,7 @@ export default function CartProduct({
             <button
               className="btn-cart"
               type="button"
-              onClick={() => {
-                console.log(productQuantity);
-              }}
+              onClick={decreaseProductQuantity}
             >
               <AiOutlineMinus size={24} />
             </button>
@@ -94,4 +116,5 @@ CartProduct.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   photo: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
 };

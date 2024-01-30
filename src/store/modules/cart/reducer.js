@@ -39,6 +39,15 @@ export default function reducer(state = initialState, action) {
       };
     }
 
+    case types.DECREASE_PRODUCT_QUANTITY: {
+      return {
+        ...state,
+        cartItems: [...state.cartItems],
+        productQuantity: action.payload,
+        haveProducts: true,
+      };
+    }
+
     default: {
       return state;
     }
