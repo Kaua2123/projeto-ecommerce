@@ -8,10 +8,6 @@ const initialState = {
   productQuantity: 0,
 };
 
-function incrementProductQuantity(quantity) {
-  quantity += 1;
-}
-
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case types.ADD_TO_CART: {
@@ -38,7 +34,7 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         cartItems: [...state.cartItems],
-        productQuantity: incrementProductQuantity(action.payload),
+        productQuantity: action.payload,
         haveProducts: true,
       };
     }

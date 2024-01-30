@@ -12,6 +12,7 @@ import * as actions from '../../store/modules/cart/actions';
 export default function CartProduct({
   name, price, photo, index,
 }) {
+  const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
   const productQuantity = useSelector((state) => state.cart.productQuantity);
   // const stockQuantity = useSelector((state) => state.cart.product.stock_quantity);
@@ -29,9 +30,9 @@ export default function CartProduct({
 
   const increaseProductQuantity = () => {
     console.log('increaseProductQUantity called');
-
+    setQuantity(quantity + 1);
     try {
-      dispatch(actions.increaseProductQuantity({ quantity }));
+      dispatch(actions.increaseProductQuantity(quantity));
     } catch (error) {
       console.log(error);
       toast.error('Ocorreu um erro ao aumentar a quantidade do item.');
@@ -74,7 +75,6 @@ export default function CartProduct({
               className="btn-cart"
               type="button"
               onClick={() => {
-                setProductQuantity(productQuantity - 1);
                 console.log(productQuantity);
               }}
             >
