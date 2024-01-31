@@ -1,0 +1,44 @@
+.center {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: 10rem;
+  background-color: var(--very-light-brown-color);
+  padding: 5rem;
+}
+
+.request-card {
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  color: black;
+  width: 75.41rem;
+  height: 30.41rem;
+  border-radius: 2.5rem;
+  background-color: var(--white-color);
+  margin-bottom: 3rem;
+}
+
+.grid-section {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+}
+
+.grid-section img {
+  width: 18rem;
+  height: 18rem;
+  margin: 6rem;
+}
+
+.grid-section p {
+  margin-bottom: 2rem;
+
+}
+
+.center2 {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+.center2 button {
+  width: 20rem;
+}

@@ -10,6 +10,7 @@ import './styles/pages/Products/products.css';
 import './styles/pages/MyProducts/myProducts.css';
 import './styles/pages/Product/product.css';
 import './styles/pages/Cart/cart.css';
+import './styles/pages/Requests/requests.css';
 import './styles/pages/UpdateUser/updateUser.css';
 
 import './styles/components/CardProduct/cardProduct.css';

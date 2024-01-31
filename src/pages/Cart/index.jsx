@@ -1,7 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import Header from '../../components/Header';
 import CartProduct from '../../components/CartProduct';
+import axios from '../../services/axios';
 
 function Cart() {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -21,6 +23,18 @@ function Cart() {
   };
 
   const subtotal = subtotalCalculator();
+
+  const createRequest = async () => {
+    await axios.post('/request/store', { total_price: subtotal, payment_method: 'Pix' })
+      .then((response) => {
+        console.log(response.data);
+        toast.success('Seu pedido foi criado. Para finalizar a compra, acesse a página Pedidos');
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error('Ocorreu um erro ao criar um pedido');
+      });
+  };
 
   return (
     <div>
@@ -60,7 +74,7 @@ function Cart() {
               </p>
             </div>
           </div>
-          <button className="brown-btn" type="button">Criar pedido</button>
+          <button className="brown-btn" type="button" onClick={createRequest}>Criar pedido</button>
         </div>
 
       </div>
