@@ -1,25 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import { FaTrash } from 'react-icons/fa';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { toast } from 'react-toastify';
 import productImg from '../../imgs/product.svg';
 import * as actions from '../../store/modules/cart/actions';
 
 export default function CartProduct({
-  name, price, photo, index,
+  id, name, price, photo, index, productQuantity,
 }) {
-  const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
-  let productQuantity = useSelector((state) => state.cart.productQuantity);
   // const stockQuantity = useSelector((state) => state.cart.product.stock_quantity);
+  console.log(productQuantity);
   const removeFromCart = () => {
     try {
       dispatch(actions.removeFromCart({ index }));
-      toast.success('Item removido do carrinho.');
     } catch (error) {
       console.log(error);
       toast.error('Ocorreu um erro ao remover o item do carrinho.');
@@ -27,18 +25,8 @@ export default function CartProduct({
   };
 
   const increaseProductQuantity = () => {
-    if (productQuantity === 0) {
-      setQuantity(quantity + 1);
-    } else {
-      productQuantity += 1;
-    }
-
     try {
-      if (productQuantity === 0) {
-        dispatch(actions.increaseProductQuantity(quantity));
-      } else {
-        dispatch(actions.increaseProductQuantity(productQuantity));
-      }
+      dispatch(actions.increaseProductQuantity({ id }));
     } catch (error) {
       console.log(error);
       toast.error('Ocorreu um erro ao aumentar a quantidade do item.');
@@ -46,17 +34,8 @@ export default function CartProduct({
   };
 
   const decreaseProductQuantity = () => {
-    if (productQuantity === 0) {
-      setQuantity(quantity - 1);
-    } else {
-      productQuantity -= 1;
-    }
     try {
-      if (productQuantity === 0) {
-        dispatch(actions.decreaseProductQuantity(quantity));
-      } else {
-        dispatch(actions.decreaseProductQuantity(productQuantity));
-      }
+      dispatch(actions.decreaseProductQuantity({ id }));
     } catch (error) {
       console.log(error);
       toast.error('Ocorreu um erro ao diminuir a quantidade do item.');
@@ -83,8 +62,9 @@ export default function CartProduct({
           </p>
           <p>
             Quantidade:
-            {' '}
+            { ' '}
             {productQuantity}
+
           </p>
           <div className="buttons-cart">
 
@@ -113,8 +93,10 @@ export default function CartProduct({
 }
 
 CartProduct.propTypes = {
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   photo: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
+  productQuantity: PropTypes.number.isRequired,
 };

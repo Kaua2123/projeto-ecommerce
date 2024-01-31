@@ -4,8 +4,23 @@ import Header from '../../components/Header';
 import CartProduct from '../../components/CartProduct';
 
 function Cart() {
-  const price = useSelector((state) => state.cart.product.price);
   const cartItems = useSelector((state) => state.cart.cartItems);
+  const [{ price }] = cartItems;
+  const [{ product_quantity }] = cartItems;
+
+  console.log(price, product_quantity);
+
+  const subtotalCalculator = () => {
+    const firstAmount = cartItems.map((value) => (
+      value.product_quantity * value.price
+    ));
+    const lastAmount = firstAmount.reduce((acumulator, actualValue) => (
+      acumulator + actualValue
+    ));
+    return lastAmount.toFixed(2);
+  };
+
+  const subtotal = subtotalCalculator();
 
   return (
     <div>
@@ -17,9 +32,11 @@ function Cart() {
           {cartItems.map((value, index) => (
             <CartProduct
               key={value.id}
+              id={value.id}
               name={value.name}
               price={value.price}
               photo={value.photo}
+              productQuantity={value.product_quantity}
               index={index}
             />
           ))}
@@ -36,7 +53,7 @@ function Cart() {
             <div>
               <p>
                 {' '}
-                {price}
+                {subtotal}
                 {' '}
                 R$
                 {' '}

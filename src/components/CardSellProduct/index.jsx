@@ -30,10 +30,12 @@ export default function CardSellProduct() {
   }, []);
 
   const addItemToCart = () => {
-    const { name, price, stock_quantity } = product;
+    const {
+      name, price, stock_quantity, product_quantity,
+    } = product;
     try {
       dispatch(actions.addToCart({
-        id, name, price, stock_quantity, productPhoto,
+        id, name, price, stock_quantity, product_quantity, productPhoto,
       }));
       toast.success('Item adicionado ao carrinho');
     } catch (error) {

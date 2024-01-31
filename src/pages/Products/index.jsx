@@ -75,6 +75,7 @@ function Products() {
         name: productName,
         price: productPrice,
         stock_quantity: productStock,
+        product_quantity: 1,
         description: productDescription,
         user_id: decodedToken.id,
       })

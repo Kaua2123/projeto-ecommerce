@@ -5,7 +5,6 @@ const initialState = {
   cartItems: [],
   product: {},
   haveProducts: false,
-  productQuantity: 0,
 };
 
 export default function reducer(state = initialState, action) {
@@ -31,19 +30,27 @@ export default function reducer(state = initialState, action) {
     }
 
     case types.INCREASE_PRODUCT_QUANTITY: {
+      const { id } = action.payload;
+      const newCartItems = state.cartItems.map((item) => (
+        item.id === id ? { ...item, product_quantity: item.product_quantity + 1 } : item
+      ));
+
       return {
         ...state,
-        cartItems: [...state.cartItems],
-        productQuantity: action.payload,
+        cartItems: newCartItems,
         haveProducts: true,
       };
     }
 
     case types.DECREASE_PRODUCT_QUANTITY: {
+      const { id } = action.payload;
+      const newCartItems = state.cartItems.map((item) => (
+        item.id === id ? { ...item, product_quantity: item.product_quantity - 1 } : item
+      ));
+
       return {
         ...state,
-        cartItems: [...state.cartItems],
-        productQuantity: action.payload,
+        cartItems: newCartItems,
         haveProducts: true,
       };
     }
