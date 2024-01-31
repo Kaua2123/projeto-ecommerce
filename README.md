@@ -19,7 +19,7 @@ Para inicializar o projeto, é necessário, antes, inicializar a API REST, que p
 - Instale as dependências: `npm i`
 - Execute o servidor: `npm run dev`
 
-Com o servidor em funcionamento, basta fazer o mesmo para essa aplicação. Abra o CMD na pasta da aplicação, digite os comandos acima e acesse o link fornecido (geralmente localhost:5173) no seu navegador para visualizar e interagir com a aplicação.
+Com o servidor em funcionamento, acesse o link fornecido (geralmente localhost:5173) no seu navegador para visualizar e interagir com a aplicação.
 
 ## 📸 Imagens principais: 
 
