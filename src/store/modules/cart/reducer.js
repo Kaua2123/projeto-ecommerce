@@ -29,6 +29,16 @@ export default function reducer(state = initialState, action) {
       };
     }
 
+    case types.REMOVE_ALL_FROM_CART: {
+      const newCartItems = [...state.cartItems];
+      newCartItems.length = 0;
+      return {
+        ...state,
+        cartItems: newCartItems,
+        haveProducts: newCartItems.length > 0,
+      };
+    }
+
     case types.INCREASE_PRODUCT_QUANTITY: {
       const { id } = action.payload;
       const newCartItems = state.cartItems.map((item) => (

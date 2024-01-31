@@ -14,6 +14,13 @@ export function removeFromCart(payload) {
   };
 }
 
+export function removeAllFromCart(payload) {
+  return {
+    type: types.REMOVE_ALL_FROM_CART,
+    payload,
+  };
+}
+
 export function increaseProductQuantity(payload) {
   return {
     type: types.INCREASE_PRODUCT_QUANTITY,

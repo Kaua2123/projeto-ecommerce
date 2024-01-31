@@ -1,25 +1,28 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+
+import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
 import CartProduct from '../../components/CartProduct';
 import axios from '../../services/axios';
+import * as actions from '../../store/modules/cart/actions';
 
 function Cart() {
   const cartItems = useSelector((state) => state.cart.cartItems);
-  const [{ price }] = cartItems;
-  const [{ product_quantity }] = cartItems;
-
-  console.log(price, product_quantity);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const subtotalCalculator = () => {
     const firstAmount = cartItems.map((value) => (
       value.product_quantity * value.price
     ));
-    const lastAmount = firstAmount.reduce((acumulator, actualValue) => (
-      acumulator + actualValue
-    ));
-    return lastAmount.toFixed(2);
+    if (cartItems.length > 0) {
+      const lastAmount = firstAmount.reduce((acumulator, actualValue) => (
+        acumulator + actualValue
+      ));
+      return lastAmount.toFixed(2);
+    }
   };
 
   const subtotal = subtotalCalculator();
@@ -29,6 +32,8 @@ function Cart() {
       .then((response) => {
         console.log(response.data);
         toast.success('Seu pedido foi criado. Para finalizar a compra, acesse a página Pedidos');
+        dispatch(actions.removeAllFromCart());
+        navigate('/requests');
       })
       .catch((error) => {
         console.log(error);
