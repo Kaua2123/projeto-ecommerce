@@ -6,7 +6,6 @@ import Header from '../../components/Header';
 import Search from '../../imgs/search.svg';
 import Cart from '../../imgs/cart.svg';
 import Sell from '../../imgs/sell.svg';
-import Contact from '../../imgs/contact.svg';
 
 function Home() {
   return (
@@ -80,33 +79,6 @@ function Home() {
                 {' '}
                 como vendedor
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="white-bg">
-        <div className="contact-content main-content">
-          <div className="column">
-            <h2 className="contact-title">
-              Fale conosco
-            </h2>
-            <div className="contact-container">
-              <div>
-                <img className="illustration-img" src={Contact} alt="" />
-              </div>
-              <div>
-                <form className="contact-form" action="#">
-                  <label>Nome</label>
-                  <input type="text" placeholder="Seu nome" />
-                  <label>Email</label>
-                  <input type="text" placeholder="Seu email" />
-                  <label>Mensagem</label>
-                  <input type="text" placeholder="Sua mensagem" />
-
-                  <button type="button" className="brown-btn">Enviar</button>
-                </form>
-              </div>
             </div>
           </div>
         </div>
