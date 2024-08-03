@@ -2,6 +2,8 @@
 
 ## 📝 Descrição
 
+### obs: Este projeto não foi finalizado.
+
 Neste projeto, viso treinar e me aprimorar no desenvolvimento WEB com a biblioteca React e Redux para gerenciamento de estado. A fim de cumprir esse objetivo, consumi uma API REST de "e-commerce", também desenvolvida por mim.
 
 A aplicação permite a venda e o gerenciamento dos seus próprios produtos, além da compra e criação de pedidos, com o carrinho de compras para auxiliar o processo. Conta, também, com as funcionalidades básicas de usuários: criação, exibição, deletar e atualização de dados.
